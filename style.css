@@ -102,3 +102,55 @@ input[type=number] {
     opacity: 0.8;
     color: crimson;
 }
+
+@media (max-width: 1200px) {
+
+    .morph {
+        border: rgba(64, 39, 39, 0.548) solid 1px;
+        padding: 2vw ;
+    }
+
+    .X-axis,
+    .Y-axis {
+        flex-direction: column;
+        padding: 2vw;
+    }
+
+    .X-axis label,
+    .Y-axis label {
+        font-size: 2vh;
+        margin: 1vw;
+    }
+
+    .X-axis input,
+    .Y-axis input,
+    .dropdown select {
+        padding: 0.4vh;
+        margin: 2vw;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+
+    .dropdown {
+        flex-direction: column;
+    }
+
+    .dropdown label {
+        font-size: 2vh;
+        margin: 1vw;
+    }
+
+    .dropdown option {
+        font-size: 2vh;
+    }
+
+
+}
