@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Chart From Your Data</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container-md">
+
+        <h1>Welcome to the pilgrim of chart</h1>
+
+        <div class="arbtn">
+
+            <div class="X-axis">
+                <label for="Addx">Add Number to x Axis for Chart analysis: </label>
+                <input type="number" name="Addx" id="Addxaxis">
+                <p class="p-errx">Enter Value to the Input</p>
+                <button id="Addx" class="btn btn-primary">Add to X-axis</button>
+
+
+                <label for="Removex">Remove Number from X-axis: </label>
+                <button id="Removex" class="btn btn-danger">Remove From X</button>
+
+
+            </div>
+
+            <div class="Y-axis">
+
+                <label for="Addy">Add Number to y Axis for Chart analysis: </label>
+                <input type="number" name="Addy" id="Addyaxis">
+                <p class="p-erry">Enter Value to the Input</p>
+                <button id="Addy" class="btn btn-primary">Add to Y-axis</button>
+
+
+                <label for="Removey">Remove Number from Y-axis: </label>
+                <button id="Removey" class="btn btn-danger">Remove From Y</button>
+
+            </div>
+
+        </div>
+
+        <div class="dropdown">
+
+            <label for="ChartType">Select Chart Type: </label>
+            <select name="ChartTypes" id="ChartTypes">
+                <option value="select" disabled selected>Select Chart Type</option>
+                <option value="bar" id="Bar">Bar Chart</option>
+                <option value="bubble" id="Bubble">Bubble Chart</option>
+                <option value="pie" id="Pie">Pie Chart</option>
+                <option value="doughnut" id="doughnut">doughnut Chart</option>
+                <option value="line" id="Line">Line Chart</option>
+                <option value="polarArea" id="Polar">Polar Chart</option>
+                <option value="radar" id="Radar">Radar Chart</option>
+                <option value="scatter" id="Scatter">Scatter Chart</option>
+            </select>
+
+
+            <button class="makecharttbn btn btn-outline-success">Make Chart</button>
+
+        </div>
+
+        <div class="chart-container">
+            <canvas id="MyChart"></canvas>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            var chart = document.querySelector("#MyChart").getContext('2d');
+            var ChartType = document.querySelector("#ChartTypes"); // Corrected selector
+            var btn = document.querySelector(".btn.btn-outline-success"); // Corrected selector
+            var myChart = null; // Initialize myChart as null for destroy chart if already created
+
+            var errx = document.querySelector(".p-errx")
+            var erry = document.querySelector(".p-erry")
+            var arbtn = document.querySelector(".arbtn")
+
+            var Addx = document.querySelector("#Addxaxis")
+            var Addy = document.querySelector("#Addyaxis")
+            var Removex = document.querySelector("#Removex")
+            var Removey = document.querySelector("#Removey")
+
+            var xAxisArr = [];
+            var yAxisArr = [];
+
+
+            arbtn.addEventListener("click", function (v) {
+                if (v.target.id === "Addx") {
+                    if (Addx.value !== '') {
+                        xAxisArr.push(Addx.value);
+                        Addx.value = "";
+                        Addx.focus();
+                    }
+                    else {
+                        errx.style.display = "block"
+                        Addx.value = "";
+                        Addx.focus();
+                    }
+                }
+                else if (v.target.id === "Addy") {
+                    if (Addy.value !== '') {
+                        yAxisArr.push(Addy.value);
+                        Addy.value = "";
+                        Addy.focus();
+                    }
+                    else {
+                        erry.style.display = "block"
+                        Addy.value = "";
+                        Addy.focus();
+                    }
+                }
+                else if (v.target.id === "Removex") {
+                    xAxisArr.pop();
+                }
+                else if (v.target.id === "Removey") {
+                    yAxisArr.pop();
+                }
+
+            })
+
+
+
+
+            btn.addEventListener("click", function () {
+                if (myChart) {
+                    myChart.destroy();
+                }
+
+                var chartV = ChartType.value; // Get the selected chart type
+
+                myChart = new Chart(chart, {
+                    type: `${chartV}`,
+                    data: {
+                        labels: xAxisArr,  // X-axis labels
+                        datasets: [{
+                            label: `Your ${chartV} chart`,
+                            data: yAxisArr// Y-axis data
+                        }]
+                    }
+                });
+            });
+        });
+
+        
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+h1 {
+    text-transform: uppercase;
+    margin: 2vw;
+    text-align: center;
+    font-size: 4vw;
+}
+
+.p-errx,
+.p-erry {
+    display: none;
+    color: rgba(240, 87, 87, 0.722);
+}
+
+.arbtn {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.X-axis,
+.Y-axis {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 1vw;
+}
+
+.X-axis label,
+.Y-axis label {
+    font-size: 1.3vw;
+}
+
+.X-axis input,
+.Y-axis input,
+.dropdown select {
+    border: blue 2px solid;
+    border-radius: 10px;
+    padding: 0.4vw;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.dropdown {
+    padding: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.dropdown label {
+    font-size: 1.3vw;
+    margin: 1vw;
+}
+
+.dropdown option {
+    font-size: 1.3vw;
+    font-weight: 400;
+    opacity: 0.8;
+    color: crimson;
+}
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 60%;
+}
+
+
+.chart-container canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
