@@ -16,54 +16,56 @@
 
         <h1>Welcome to the pilgrim of chart</h1>
 
-        <div class="arbtn">
-
-            <div class="X-axis">
-                <label for="Addx">Add Number to x Axis for Chart analysis: </label>
-                <input type="number" name="Addx" id="Addxaxis">
-                <p class="p-errx">Enter Value to the Input</p>
-                <button id="Addx" class="btn btn-primary">Add to X-axis</button>
+        <div class="morph">
+            <div class="arbtn">
 
 
-                <label for="Removex">Remove Number from X-axis: </label>
-                <button id="Removex" class="btn btn-danger">Remove From X</button>
+                <div class="X-axis">
+                    <label for="Addx">Add Number to x Axis for Chart analysis: </label>
+                    <input type="number" name="Addx" id="Addxaxis">
+                    <p class="p-errx">Enter Value to the Input</p>
+                    <button id="Addx" class="btn btn-primary">Add to X-axis</button>
 
+
+                    <label for="Removex">Remove Number from X-axis: </label>
+                    <button id="Removex" class="btn btn-danger">Remove From X</button>
+
+                </div>
+
+                <div class="Y-axis">
+
+                    <label for="Addy">Add Number to y Axis for Chart analysis: </label>
+                    <input type="number" name="Addy" id="Addyaxis">
+                    <p class="p-erry">Enter Value to the Input</p>
+                    <button id="Addy" class="btn btn-primary">Add to Y-axis</button>
+
+
+                    <label for="Removey">Remove Number from Y-axis: </label>
+                    <button id="Removey" class="btn btn-danger">Remove From Y</button>
+
+                </div>
 
             </div>
 
-            <div class="Y-axis">
+            <div class="dropdown">
 
-                <label for="Addy">Add Number to y Axis for Chart analysis: </label>
-                <input type="number" name="Addy" id="Addyaxis">
-                <p class="p-erry">Enter Value to the Input</p>
-                <button id="Addy" class="btn btn-primary">Add to Y-axis</button>
+                <label for="ChartType">Select Chart Type: </label>
+                <select name="ChartTypes" id="ChartTypes">
+                    <option value="select" disabled selected>Select Chart Type</option>
+                    <option value="bar" id="Bar">Bar Chart</option>
+                    <option value="bubble" id="Bubble">Bubble Chart</option>
+                    <option value="pie" id="Pie">Pie Chart</option>
+                    <option value="doughnut" id="doughnut">doughnut Chart</option>
+                    <option value="line" id="Line">Line Chart</option>
+                    <option value="polarArea" id="Polar">Polar Chart</option>
+                    <option value="radar" id="Radar">Radar Chart</option>
+                    <option value="scatter" id="Scatter">Scatter Chart</option>
+                </select>
 
 
-                <label for="Removey">Remove Number from Y-axis: </label>
-                <button id="Removey" class="btn btn-danger">Remove From Y</button>
+                <button class="makecharttbn btn btn-outline-success">Make Chart</button>
 
             </div>
-
-        </div>
-
-        <div class="dropdown">
-
-            <label for="ChartType">Select Chart Type: </label>
-            <select name="ChartTypes" id="ChartTypes">
-                <option value="select" disabled selected>Select Chart Type</option>
-                <option value="bar" id="Bar">Bar Chart</option>
-                <option value="bubble" id="Bubble">Bubble Chart</option>
-                <option value="pie" id="Pie">Pie Chart</option>
-                <option value="doughnut" id="doughnut">doughnut Chart</option>
-                <option value="line" id="Line">Line Chart</option>
-                <option value="polarArea" id="Polar">Polar Chart</option>
-                <option value="radar" id="Radar">Radar Chart</option>
-                <option value="scatter" id="Scatter">Scatter Chart</option>
-            </select>
-
-
-            <button class="makecharttbn btn btn-outline-success">Make Chart</button>
-
         </div>
 
         <div class="chart-container">
@@ -155,7 +157,7 @@
             });
         });
 
-        
+
 
 
 
