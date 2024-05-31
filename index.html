@@ -34,6 +34,11 @@
 
                 </div>
 
+                <div class="showArrX">
+                    <p>Your X-Axis Values: </p>
+                    <h5>Your Removed Elements: </h5>
+                </div>
+
                 <hr>
 
                 <div class="Y-axis">
@@ -47,6 +52,11 @@
                     <label for="Removey">Remove Number from Y-axis: </label>
                     <button id="Removey" class="btn btn-danger">Remove From Y</button>
 
+                </div>
+
+                <div class="showArrY">
+                    <p>Your Y-Axis Values: </p>
+                    <h5>Your Removed Elements: </h5>
                 </div>
 
             </div>
@@ -69,7 +79,7 @@
                 </select>
 
 
-                <button class="makecharttbn btn btn-outline-success">Make Chart</button>
+                <button class="makecharttbn btn">Make Chart</button>
 
             </div>
         </div>
@@ -102,14 +112,21 @@
             var Removex = document.querySelector("#Removex")
             var Removey = document.querySelector("#Removey")
 
+            var arrPrintX = document.querySelector(".showArrX p")
+            var arrPrintXRemoved = document.querySelector(".showArrX h5")
+            var arrPrintY = document.querySelector(".showArrY p")
+            var arrPrintYRemoved = document.querySelector(".showArrY h5")
+
             var xAxisArr = [];
             var yAxisArr = [];
+
 
 
             arbtn.addEventListener("click", function (v) {
                 if (v.target.id === "Addx") {
                     if (Addx.value !== '') {
                         xAxisArr.push(Addx.value);
+                        arrPrintX.textContent += ` ${xAxisArr[(xAxisArr.length) - 1]} `;
                         Addx.value = "";
                         Addx.focus();
                     }
@@ -122,6 +139,7 @@
                 else if (v.target.id === "Addy") {
                     if (Addy.value !== '') {
                         yAxisArr.push(Addy.value);
+                        arrPrintY.textContent += ` ${yAxisArr[(yAxisArr.length) - 1]} `;
                         Addy.value = "";
                         Addy.focus();
                     }
@@ -132,9 +150,11 @@
                     }
                 }
                 else if (v.target.id === "Removex") {
+                    arrPrintXRemoved.textContent += ` ${xAxisArr[(xAxisArr.length) - 1]} `;
                     xAxisArr.pop();
                 }
                 else if (v.target.id === "Removey") {
+                    arrPrintYRemoved.textContent += ` ${yAxisArr[(yAxisArr.length) - 1]} `;
                     yAxisArr.pop();
                 }
 
